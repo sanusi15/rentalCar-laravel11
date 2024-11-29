@@ -1,0 +1,140 @@
+.mytable {
+    width: 100%;
+}
+
+.mytable thead tr td {
+    color: #000;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #F2F4F7;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.mytable thead tr td:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.mytable thead tr td:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.mytable thead tr td::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.mytable thead tr td.sorting_asc::after {
+    transform: translateY(-50%);
+}
+
+.mytable thead tr td.sorting_desc::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.mytable tbody tr:hover {
+    background: #F2F4F7;
+}
+
+.mytable tbody tr td {
+    color: #000;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #e4e4e4;
+    text-wrap: wrap;
+}
+
+.dataTables_length {
+    float: left;
+}
+
+.dataTables_length label {
+    border: 1px solid #e4e4e4;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dataTables_length select {
+    background: none;
+    border: 1px solid #e4e4e4;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dataTables_filter {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.dataTables_filter label {
+    content: '';
+    display: flex;
+    justify-content: space-between;
+    border: #e4e4e4 1px solid;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.dataTables_filter label input {
+    width: 100%;
+}
+
+.dataTables_filter label input:active,
+.dataTables_filter label input:focus {
+    outline: none;
+}
+
+.dataTables_info {
+    margin-top: 20px;
+    /* float: left; */
+    font-size: 14px;
+}
+
+.dataTables_paginate {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.dataTables_paginate a.previous {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.dataTables_paginate a.next {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.dataTables_paginate span a.paginate_button {
+    padding: 5px 8px;
+    /* width: 40px;
+    height: 40px; */
+    border: 1px solid #e4e4e4;
+    background: transparent;
+    color: #000;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dataTables_paginate span a.current {
+    padding: 5px 8px;
+    border: none;
+    /* width: 40px;
+    height: 40px; */
+    background: #2563EB;
+    color: #F2F4F7;
+    border-radius: 5px;
+    margin: 0 5px;
+}

@@ -1,0 +1,446 @@
+-- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
+--
+-- Host: localhost    Database: rental_mobil
+-- ------------------------------------------------------
+-- Server version	8.0.30
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cache`
+--
+
+DROP TABLE IF EXISTS `cache`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cache` (
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expiration` int NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cache`
+--
+
+LOCK TABLES `cache` WRITE;
+/*!40000 ALTER TABLE `cache` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cache` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cache_locks`
+--
+
+DROP TABLE IF EXISTS `cache_locks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cache_locks` (
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `owner` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expiration` int NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cache_locks`
+--
+
+LOCK TABLES `cache_locks` WRITE;
+/*!40000 ALTER TABLE `cache_locks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cache_locks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cars`
+--
+
+DROP TABLE IF EXISTS `cars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cars` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `cars_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `make_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `year` int NOT NULL,
+  `color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `licence_plate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `engine_size` double DEFAULT NULL,
+  `fuel_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `transmission` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `doors` int NOT NULL,
+  `seats` int NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `condition` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `daily_rate` decimal(10,2) NOT NULL,
+  `weekly_rate` decimal(10,2) NOT NULL,
+  `mileage` int DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cars_cars_id_unique` (`cars_id`),
+  UNIQUE KEY `cars_licence_plate_unique` (`licence_plate`)
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cars`
+--
+
+LOCK TABLES `cars` WRITE;
+/*!40000 ALTER TABLE `cars` DISABLE KEYS */;
+INSERT INTO `cars` VALUES (1,'CAR-20427','T02','M41',2022,'white','B-2407-XYZ',1.9,'Gasoline','Manual',2,5,'Available','New',293.46,1383.60,24278,'Natus nihil exercitationem ut possimus. Neque molestiae maxime maxime quia labore temporibus. Vitae nisi reprehenderit qui iusto suscipit ut harum. Aliquid autem modi rerum enim et odit repellendus.','w42Mzmri4xTwUAjy4vVFTfq4ktxurRTzEVjwTubA.jpg','2024-08-20 01:44:44','2024-08-20 21:37:41'),(2,'CAR-21213','T02','M41',2024,'fuchsia','B-1930-XYZ',1.9,'Electric','Automatic',2,6,'Rented','Used',215.86,834.66,55077,'Veniam blanditiis est eum veniam culpa error voluptatibus voluptatem. Veritatis provident rem ut id. Magnam eaque natus ipsam minima.','https://via.placeholder.com/640x480.png/005566?text=cars+veniam','2024-08-20 01:44:44','2024-08-20 01:44:44'),(3,'CAR-80215','T02','M41',2024,'blue','B-9237-XYZ',1.8,'Diesel','Automatic',3,4,'Rented','Used',367.32,549.57,92402,'Praesentium sit dolorem sunt quo quia quasi autem blanditiis. Sapiente consectetur vel et quo consequatur iste. Quasi vero eius pariatur beatae officia modi qui. Nostrum id eaque nostrum iusto vitae.','https://via.placeholder.com/640x480.png/004466?text=cars+placeat','2024-08-20 01:44:44','2024-08-20 01:44:44'),(4,'CAR-73284','T02','M41',2023,'olive','B-2634-XYZ',2.2,'Electric','Manual',4,7,'Available','New',118.14,1593.62,29728,'Quos suscipit qui quo laudantium magni vero aut. Quisquam laborum debitis amet. Porro nemo exercitationem sed et eum. Velit quibusdam soluta tempora praesentium ut adipisci et.','https://via.placeholder.com/640x480.png/00bb99?text=cars+ea','2024-08-20 01:44:44','2024-08-20 01:44:44'),(5,'CAR-40432','T02','M41',2022,'yellow','B-6397-XYZ',3,'Diesel','Automatic',4,7,'Available','Used',251.36,320.41,37802,'Sequi quas earum eum molestias et repudiandae nihil. Qui ut dignissimos non. Ducimus et aut nesciunt voluptas.','https://via.placeholder.com/640x480.png/0077ee?text=cars+et','2024-08-20 01:44:44','2024-08-20 01:44:44'),(6,'CAR-76791','T02','M41',2021,'navy','B-3039-XYZ',2.4,'Diesel','Manual',3,4,'Available','Used',340.44,707.42,80862,'Id autem praesentium sed dignissimos animi odio vel. Doloribus qui labore et ea. Et enim quam nihil sequi accusamus.','https://via.placeholder.com/640x480.png/0055bb?text=cars+nesciunt','2024-08-20 01:44:44','2024-08-20 01:44:44'),(7,'CAR-59134','T02','M41',2021,'black','B-7387-XYZ',2.2,'Diesel','Manual',2,5,'Available','New',366.89,666.47,24025,'Quia et et recusandae voluptatem illo nobis repellat. Tempore odio facilis quibusdam autem. Facilis maiores facere maiores quaerat eaque earum fugiat quo.','https://via.placeholder.com/640x480.png/00ff77?text=cars+iste','2024-08-20 01:44:44','2024-08-20 01:44:44'),(8,'CAR-32145','T02','M41',2024,'green','B-0093-XYZ',2.5,'Diesel','Automatic',4,4,'Available','Used',272.58,1666.23,12605,'Cupiditate et esse beatae ipsam odio. Est veniam laboriosam placeat autem. Excepturi nesciunt doloremque sed consequatur. Aliquid reprehenderit facilis qui perspiciatis possimus earum vel molestias.','https://via.placeholder.com/640x480.png/00dd22?text=cars+ad','2024-08-20 01:44:44','2024-08-20 01:44:44'),(9,'CAR-44261','T02','M41',2024,'yellow','B-3991-XYZ',2.6,'Gasoline','Automatic',2,6,'Not Available','New',302.08,1057.41,21997,'Voluptatum autem sunt adipisci ratione aut. Consequatur ut necessitatibus ut eum adipisci. Veritatis neque fugit quam repellat a necessitatibus molestias neque.','https://via.placeholder.com/640x480.png/0022aa?text=cars+officiis','2024-08-20 01:44:44','2024-08-20 01:44:44'),(10,'CAR-00705','T02','M41',2024,'silver','B-7858-XYZ',1.4,'Gasoline','Automatic',2,5,'Available','New',146.54,1063.70,67924,'Minima consectetur reprehenderit voluptates doloremque. Distinctio nobis dolores in aut quia rem quia. Magni qui aut magni earum error. Similique ut eos error. Officia rerum consequatur odit doloribus error eveniet praesentium.','https://via.placeholder.com/640x480.png/00dd22?text=cars+ipsum','2024-08-20 01:44:44','2024-08-20 01:44:44'),(11,'CAR-50036','T02','M41',2024,'silver','B-4287-XYZ',1.4,'Electric','Manual',4,7,'Rented','New',351.83,1731.30,11490,'Voluptas id vero est labore rerum nihil. Inventore ut architecto vel. Consequuntur ea animi corrupti rerum quos ut ea. Sit ipsa nam sed quod.','https://via.placeholder.com/640x480.png/0000ff?text=cars+doloribus','2024-08-20 01:44:44','2024-08-20 01:44:44'),(12,'CAR-49846','T02','M41',2024,'white','B-0720-XYZ',2,'Diesel','Automatic',3,4,'Rented','New',362.44,1607.30,86462,'Voluptas provident dolorem repellendus illum. Ex fugiat distinctio explicabo aut. Aspernatur sed omnis voluptas quis soluta repellat. Sit et animi officiis incidunt assumenda odit.','https://via.placeholder.com/640x480.png/0055ff?text=cars+corrupti','2024-08-20 01:44:44','2024-08-20 01:44:44'),(13,'CAR-77197','T02','M41',2022,'lime','B-0361-XYZ',1.6,'Electric','Manual',3,6,'Not Available','New',328.85,309.66,55172,'Quia suscipit deleniti vitae rerum sapiente doloremque earum quis. Atque eos voluptatibus voluptatem maiores ut non nostrum. Ea id perferendis perferendis quos fugit.','https://via.placeholder.com/640x480.png/001166?text=cars+amet','2024-08-20 01:44:44','2024-08-20 01:44:44'),(14,'CAR-24559','T02','M41',2020,'silver','B-8143-XYZ',1.9,'Electric','Manual',3,5,'Available','Used',95.00,959.42,61195,'Voluptatem fuga est rerum nihil eius blanditiis labore. Aut voluptatem ullam voluptas omnis impedit. Rerum qui assumenda autem.','https://via.placeholder.com/640x480.png/003388?text=cars+perferendis','2024-08-20 01:44:44','2024-08-20 01:44:44'),(15,'CAR-57988','T02','M41',2021,'lime','B-1384-XYZ',1.3,'Diesel','Automatic',2,4,'Rented','New',391.65,713.53,84613,'Numquam quaerat rem id et at. Sapiente nostrum quos modi sed officia ducimus id. Nihil repudiandae nihil pariatur accusamus. Repudiandae enim enim culpa autem eligendi aut enim sed.','https://via.placeholder.com/640x480.png/006611?text=cars+corporis','2024-08-20 01:44:44','2024-08-20 01:44:44'),(16,'CAR-11698','T02','M41',2023,'fuchsia','B-2046-XYZ',3,'Diesel','Manual',2,4,'Available','Used',403.60,1041.13,93416,'Aspernatur voluptate sit odit. Dolor officia quos itaque non. Nam inventore ea quis sint. Sint vel vitae sed eveniet et minus voluptatibus.','https://via.placeholder.com/640x480.png/003399?text=cars+et','2024-08-20 01:44:44','2024-08-20 01:44:44'),(17,'CAR-67028','T02','M41',2020,'fuchsia','B-7808-XYZ',2.3,'Gasoline','Automatic',2,5,'Available','Used',322.73,1138.26,49774,'Culpa deleniti aut esse ullam. Enim quo autem et quos voluptatum. Sunt nobis voluptatem sed enim pariatur numquam eius.','https://via.placeholder.com/640x480.png/002211?text=cars+dolorem','2024-08-20 01:44:44','2024-08-20 01:44:44'),(18,'CAR-46578','T02','M41',2021,'lime','B-3628-XYZ',2.7,'Diesel','Automatic',3,4,'Rented','Used',404.85,354.35,76103,'Eos excepturi ea praesentium dolores officiis. Impedit quo aut quasi rerum. Velit ipsa voluptas qui ut repellat autem. Perferendis voluptatem beatae et deleniti architecto officia veniam.','https://via.placeholder.com/640x480.png/004444?text=cars+soluta','2024-08-20 01:44:44','2024-08-20 01:44:44'),(19,'CAR-21880','T02','M41',2020,'black','B-7013-XYZ',2.9,'Diesel','Manual',2,7,'Available','New',146.55,1493.97,14436,'Asperiores amet tenetur labore itaque. Magnam voluptatem sint repellendus dolorem sint quas cumque. Doloremque asperiores itaque aut assumenda.','https://via.placeholder.com/640x480.png/00eebb?text=cars+laborum','2024-08-20 01:44:44','2024-08-20 01:44:44'),(20,'CAR-24950','T02','M41',2021,'purple','B-3777-XYZ',1.7,'Gasoline','Manual',2,4,'Rented','New',206.93,521.92,2948,'Accusantium velit quidem eaque distinctio ut beatae saepe. Ad soluta dolores impedit odio soluta ea sit. Veritatis quod molestiae quis consequatur aut dolorum.','https://via.placeholder.com/640x480.png/00aa00?text=cars+dolor','2024-08-20 01:44:44','2024-08-20 01:44:44'),(21,'CAR-50328','T02','M41',2020,'silver','B-6590-XYZ',1.5,'Gasoline','Automatic',4,5,'Not Available','Used',300.71,1071.76,39924,'Ipsum veritatis fuga enim et. Repudiandae consequatur corrupti aliquid omnis et deleniti amet. Mollitia in optio amet quibusdam ab aut possimus. Ducimus explicabo voluptatem quos voluptates nam.','https://via.placeholder.com/640x480.png/002244?text=cars+autem','2024-08-20 01:44:44','2024-08-20 01:44:44'),(22,'CAR-45653','T02','M41',2023,'fuchsia','B-7100-XYZ',2.1,'Gasoline','Manual',2,7,'Available','Used',346.75,717.61,67567,'Et adipisci non similique omnis consectetur enim. Et nobis illum aut aperiam rem dolorum quod et. Dolorum qui perferendis delectus eligendi.','https://via.placeholder.com/640x480.png/006600?text=cars+error','2024-08-20 01:44:44','2024-08-20 01:44:44'),(23,'CAR-62627','T02','M41',2023,'lime','B-8972-XYZ',2.2,'Diesel','Automatic',4,4,'Rented','New',313.60,1902.66,80995,'Autem cupiditate est in et sed ut. In a consequatur aspernatur explicabo molestiae mollitia aperiam. Sit dicta voluptatibus ducimus voluptates atque sint.','https://via.placeholder.com/640x480.png/000066?text=cars+numquam','2024-08-20 01:44:44','2024-08-20 01:44:44'),(24,'CAR-60721','T02','M41',2020,'yellow','B-8875-XYZ',1.5,'Electric','Manual',4,7,'Rented','New',324.94,463.02,36589,'Et non quo explicabo et voluptatem deleniti inventore. Non esse blanditiis quaerat suscipit libero et. Et sapiente quae accusamus vero recusandae.','https://via.placeholder.com/640x480.png/005555?text=cars+enim','2024-08-20 01:44:44','2024-08-20 01:44:44'),(25,'CAR-65092','T02','M41',2022,'olive','B-7144-XYZ',2.1,'Gasoline','Automatic',2,7,'Rented','Used',289.92,1442.81,35689,'Aperiam nihil cupiditate quibusdam tempore. Et sapiente omnis placeat veritatis sint iure. Et ducimus eius quo et omnis dolorem molestiae. Nisi recusandae quasi iusto quaerat inventore.','https://via.placeholder.com/640x480.png/005566?text=cars+vel','2024-08-20 01:44:44','2024-08-20 01:44:44'),(26,'CAR-13677','T02','M41',2023,'fuchsia','B-0803-XYZ',1.9,'Diesel','Manual',2,4,'Rented','New',237.33,409.74,26974,'Libero soluta animi quis est. Quasi voluptas et veniam alias. Velit omnis culpa iusto quam cumque facilis. Omnis optio deserunt facere voluptatem atque debitis.','https://via.placeholder.com/640x480.png/00eeee?text=cars+corporis','2024-08-20 01:44:44','2024-08-20 01:44:44'),(27,'CAR-29006','T02','M41',2023,'navy','B-5887-XYZ',1.5,'Gasoline','Automatic',4,5,'Not Available','New',51.26,1699.44,93448,'Eveniet beatae voluptatem alias quaerat occaecati vel autem. Pariatur ab quo quidem adipisci aut.','https://via.placeholder.com/640x480.png/00bb00?text=cars+debitis','2024-08-20 01:44:44','2024-08-20 01:44:44'),(28,'CAR-64655','T02','M41',2021,'blue','B-0819-XYZ',2.2,'Gasoline','Manual',4,6,'Not Available','Used',170.17,997.60,36196,'Vitae aut et magnam qui dolor. Aut culpa nesciunt quas in. Impedit voluptatibus qui at fuga. Magnam in debitis et facilis.','https://via.placeholder.com/640x480.png/002299?text=cars+aperiam','2024-08-20 01:44:44','2024-08-20 01:44:44'),(29,'CAR-09349','T02','M41',2022,'maroon','B-1794-XYZ',3,'Gasoline','Automatic',4,5,'Available','Used',284.21,483.25,6681,'Voluptatibus odit laboriosam laborum perferendis qui omnis architecto pariatur. Mollitia voluptatem eum nobis eum ut consequatur. Dolor doloribus aperiam voluptatem ratione quo suscipit.','https://via.placeholder.com/640x480.png/000099?text=cars+in','2024-08-20 01:44:44','2024-08-20 01:44:44'),(30,'CAR-98146','T02','M41',2022,'white','B-1391-XYZ',2.5,'Electric','Manual',4,4,'Not Available','New',358.82,1982.53,32216,'Consequatur hic quis dolorem quia delectus adipisci. Beatae expedita fugiat perferendis voluptatem. Dignissimos quaerat nulla ut veritatis a.','https://via.placeholder.com/640x480.png/00bb33?text=cars+iste','2024-08-20 01:44:44','2024-08-20 01:44:44'),(31,'CAR-59666','T02','M41',2023,'black','B-2937-XYZ',1.4,'Gasoline','Manual',2,6,'Available','New',66.67,1252.09,36407,'Laboriosam voluptatem repellat doloremque et nostrum. Rerum harum natus qui quam. Accusantium eos aut rerum ut minus dicta reiciendis.','https://via.placeholder.com/640x480.png/00dd22?text=cars+dolor','2024-08-20 01:44:44','2024-08-20 01:44:44'),(32,'CAR-24311','T02','M41',2023,'white','B-0674-XYZ',1.1,'Diesel','Manual',3,7,'Available','Used',145.54,1649.44,76958,'Aut aut iure voluptatem a totam. Officia et est eos possimus possimus animi. Ut minus quidem esse alias. Ullam et commodi aliquid illo reiciendis. Qui voluptatem rerum nisi.','https://via.placeholder.com/640x480.png/00ee55?text=cars+illum','2024-08-20 01:44:44','2024-08-20 01:44:44'),(33,'CAR-01250','T02','M41',2024,'teal','B-0562-XYZ',1.1,'Gasoline','Manual',2,6,'Rented','Used',410.22,1084.52,85921,'Numquam iusto quaerat vel aut blanditiis deserunt quibusdam. Facere est officia officiis est incidunt dolorem. Possimus voluptatum non odit ex quae quaerat ratione. Quo neque enim tenetur omnis a quis eveniet.','https://via.placeholder.com/640x480.png/00ccee?text=cars+doloremque','2024-08-20 01:44:44','2024-08-20 01:44:44'),(34,'CAR-84510','T02','M41',2022,'yellow','B-6853-XYZ',2.2,'Gasoline','Automatic',2,5,'Not Available','Used',354.45,1401.87,42095,'Cumque tempore voluptatem vel error. Cum non dolores molestiae eaque. Quam tenetur fugiat mollitia sint enim asperiores dicta.','https://via.placeholder.com/640x480.png/009944?text=cars+sint','2024-08-20 01:44:44','2024-08-20 01:44:44'),(35,'CAR-79033','T02','M41',2021,'white','B-1657-XYZ',2.2,'Gasoline','Automatic',2,4,'Not Available','Used',461.88,641.39,32236,'Repellendus labore rerum aut qui qui quia. Error quia et voluptatum. Velit officia iusto ut vitae odio.','https://via.placeholder.com/640x480.png/00ee55?text=cars+aperiam','2024-08-20 01:44:44','2024-08-20 01:44:44'),(36,'CAR-77101','T02','M41',2021,'navy','B-9913-XYZ',2.5,'Gasoline','Manual',2,5,'Not Available','Used',335.12,1633.58,84560,'Ut ullam neque beatae ipsum est quia suscipit. Est rerum id aut. Amet sit repellat distinctio voluptatum ipsam dolores et odio. Exercitationem ipsa consequatur iste molestias autem.','https://via.placeholder.com/640x480.png/00eecc?text=cars+maxime','2024-08-20 01:44:44','2024-08-20 01:44:44'),(37,'CAR-97668','T02','M41',2020,'fuchsia','B-6026-XYZ',2.4,'Electric','Manual',3,7,'Available','New',77.42,1325.90,72208,'Repellendus corrupti est est accusantium ut quos. Et voluptates eius sint hic vitae quis quos. Sint iure suscipit laboriosam quidem nisi.','https://via.placeholder.com/640x480.png/00dd66?text=cars+asperiores','2024-08-20 01:44:44','2024-08-20 01:44:44'),(38,'CAR-97422','T02','M41',2022,'black','B-4844-XYZ',1.6,'Diesel','Automatic',3,6,'Available','New',146.76,1304.98,76277,'Non voluptatibus nostrum explicabo ducimus possimus beatae molestiae. Est magni voluptatem eaque autem.','https://via.placeholder.com/640x480.png/003344?text=cars+delectus','2024-08-20 01:44:44','2024-08-20 01:44:44'),(39,'CAR-13872','T02','M41',2020,'lime','B-0600-XYZ',2.4,'Diesel','Automatic',2,4,'Rented','Used',237.98,672.87,79102,'Omnis fugit ut reiciendis quo consequatur impedit. Et nisi fugit laudantium ea consectetur. Provident eaque nesciunt sed praesentium.','https://via.placeholder.com/640x480.png/00cc44?text=cars+voluptatum','2024-08-20 01:44:44','2024-08-20 01:44:44'),(40,'CAR-21737','T02','M41',2024,'white','B-0456-XYZ',2.4,'Electric','Automatic',3,5,'Available','Used',233.04,421.09,10316,'Distinctio autem veritatis ut rerum. Quia repellendus ut libero necessitatibus non. Asperiores at aliquam explicabo magnam voluptatem. Provident libero placeat consequatur.','https://via.placeholder.com/640x480.png/006644?text=cars+nobis','2024-08-20 01:44:44','2024-08-20 01:44:44'),(41,'CAR-90288','T02','M41',2024,'yellow','B-6825-XYZ',1.1,'Electric','Manual',3,6,'Rented','Used',489.11,1593.58,69332,'Eveniet rerum quod debitis molestiae corporis. Cupiditate asperiores consequatur in sed. Omnis commodi saepe dolorum corrupti suscipit. Voluptas officia quibusdam aliquam aliquam. Delectus unde autem ad facere omnis.','https://via.placeholder.com/640x480.png/00cc33?text=cars+quae','2024-08-20 01:44:44','2024-08-20 01:44:44'),(42,'CAR-93536','T02','M41',2023,'white','B-2322-XYZ',3,'Gasoline','Manual',2,5,'Not Available','Used',135.82,594.53,86990,'Vero sit qui voluptatum amet amet culpa qui. Nihil facere rerum consequatur. Non voluptatem distinctio dolor.','https://via.placeholder.com/640x480.png/006644?text=cars+repellat','2024-08-20 01:44:44','2024-08-20 01:44:44'),(43,'CAR-00416','T02','M41',2023,'teal','B-6228-XYZ',1.7,'Gasoline','Automatic',4,6,'Rented','Used',265.13,1362.31,53487,'Maiores est dolorum accusamus consequatur in quam. Nisi cumque rerum corporis ad. Labore ut assumenda velit quia.','https://via.placeholder.com/640x480.png/001166?text=cars+assumenda','2024-08-20 01:44:44','2024-08-20 01:44:44'),(44,'CAR-13384','T02','M41',2023,'navy','B-0266-XYZ',2.4,'Gasoline','Manual',3,4,'Rented','Used',288.63,1382.86,17813,'Praesentium deleniti unde quia veniam molestiae. Aut aliquid pariatur itaque inventore ipsum. Ad sed reprehenderit beatae vel sequi et rerum. Sapiente molestiae voluptatem officiis vitae perspiciatis.','https://via.placeholder.com/640x480.png/0077cc?text=cars+labore','2024-08-20 01:44:44','2024-08-20 01:44:44'),(45,'CAR-70099','T02','M41',2023,'silver','B-6443-XYZ',1.8,'Gasoline','Automatic',3,7,'Available','Used',496.64,1827.04,79369,'Ipsum ducimus deleniti blanditiis. Distinctio id dolor quia eveniet sint doloribus quia eum. Est enim harum nihil et placeat reprehenderit nesciunt placeat. Minima sit blanditiis totam omnis.','https://via.placeholder.com/640x480.png/00aaee?text=cars+laboriosam','2024-08-20 01:44:44','2024-08-20 01:44:44'),(46,'CAR-40371','T02','M41',2020,'yellow','B-6668-XYZ',2,'Gasoline','Automatic',2,7,'Not Available','Used',161.20,998.28,63655,'Error quia ut impedit omnis. Vel voluptate fugit deleniti a cum occaecati vero. Sint ut qui possimus. Maxime distinctio iure iusto alias. Illo velit tempore est molestiae doloremque.','https://via.placeholder.com/640x480.png/0022ff?text=cars+ut','2024-08-20 01:44:44','2024-08-20 01:44:44'),(47,'CAR-69167','T02','M41',2020,'lime','B-7300-XYZ',2.8,'Electric','Manual',2,7,'Not Available','Used',485.62,889.00,3607,'Labore alias quia molestias ut est. Voluptas iusto debitis libero facere. Maxime eius voluptate veniam harum provident incidunt.','https://via.placeholder.com/640x480.png/00ffff?text=cars+at','2024-08-20 01:44:44','2024-08-20 01:44:44'),(48,'CAR-77768','T02','M41',2023,'gray','B-9847-XYZ',3,'Diesel','Manual',2,6,'Not Available','New',181.50,1301.68,15472,'Facilis dolor nobis sunt vero. Earum est aut quidem sint omnis perferendis.','https://via.placeholder.com/640x480.png/009966?text=cars+voluptate','2024-08-20 01:44:44','2024-08-20 01:44:44'),(49,'CAR-53606','T02','M41',2024,'blue','B-0597-XYZ',2.1,'Electric','Automatic',4,7,'Rented','New',370.74,542.01,8838,'Deserunt soluta impedit incidunt rerum. Est sit optio nobis perspiciatis. Consequatur velit nam rem molestias culpa cupiditate. Nobis occaecati aliquam vel dolor architecto ut sint beatae. Non quo natus praesentium quo quaerat sed.','https://via.placeholder.com/640x480.png/00dd88?text=cars+corrupti','2024-08-20 01:44:44','2024-08-20 01:44:44'),(50,'CAR-51728','T02','M41',2023,'teal','B-4697-XYZ',1.9,'Gasoline','Automatic',4,7,'Not Available','Used',249.30,1815.81,48032,'Repudiandae totam eligendi ullam modi. Dolor praesentium commodi cupiditate est et repellendus. Et numquam sed sint dicta corporis. Corrupti eos vitae earum laborum.','https://via.placeholder.com/640x480.png/001100?text=cars+porro','2024-08-20 01:44:44','2024-08-20 01:44:44'),(51,'CAR00001','T10','M34',2021,'Black','B 2102 XDA',600,'Diesel','Manual',4,6,'Available','Used',400000.00,1800000.00,NULL,'Tes dricnasasd',NULL,'2024-08-20 21:33:47','2024-08-20 21:33:47'),(53,'CAR00009','T10','M41',2024,'White','A 12 BO',3500,'Diesel','Manual',2,2,'Available','New',4000000.00,20000000.00,NULL,'A new sport cars','mi8FbxudGjMuBdScXCaxzUyXe1fSb2KP7X4IrIk8.jpg','2024-10-11 22:47:28','2024-10-11 22:47:28');
+/*!40000 ALTER TABLE `cars` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cars_models`
+--
+
+DROP TABLE IF EXISTS `cars_models`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cars_models` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_cars_model` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cars_models_id_cars_model_unique` (`id_cars_model`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cars_models`
+--
+
+LOCK TABLES `cars_models` WRITE;
+/*!40000 ALTER TABLE `cars_models` DISABLE KEYS */;
+INSERT INTO `cars_models` VALUES (1,'M53','facilisada','2024-08-20 01:44:44','2024-08-21 01:18:52'),(2,'M41','rerum','2024-08-20 01:44:44','2024-08-20 01:44:44');
+/*!40000 ALTER TABLE `cars_models` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cars_types`
+--
+
+DROP TABLE IF EXISTS `cars_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cars_types` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_cars_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cars_types_id_cars_type_unique` (`id_cars_type`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cars_types`
+--
+
+LOCK TABLES `cars_types` WRITE;
+/*!40000 ALTER TABLE `cars_types` DISABLE KEYS */;
+INSERT INTO `cars_types` VALUES (1,'T02','Honda','2024-08-20 01:44:44','2024-08-21 01:12:00'),(2,'T10','Toyota','2024-08-20 01:44:44','2024-08-21 01:12:09'),(3,'T92','BMW','2024-08-20 01:44:44','2024-08-21 01:12:17'),(4,'T38','vero','2024-08-20 01:44:44','2024-08-20 01:44:44');
+/*!40000 ALTER TABLE `cars_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customers`
+--
+
+DROP TABLE IF EXISTS `customers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `customers` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_customer` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` enum('l','p') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customers`
+--
+
+LOCK TABLES `customers` WRITE;
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+DROP TABLE IF EXISTS `failed_jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `failed_jobs` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `failed_jobs`
+--
+
+LOCK TABLES `failed_jobs` WRITE;
+/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `job_batches`
+--
+
+DROP TABLE IF EXISTS `job_batches`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `job_batches` (
+  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_jobs` int NOT NULL,
+  `pending_jobs` int NOT NULL,
+  `failed_jobs` int NOT NULL,
+  `failed_job_ids` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `options` mediumtext COLLATE utf8mb4_unicode_ci,
+  `cancelled_at` int DEFAULT NULL,
+  `created_at` int NOT NULL,
+  `finished_at` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `job_batches`
+--
+
+LOCK TABLES `job_batches` WRITE;
+/*!40000 ALTER TABLE `job_batches` DISABLE KEYS */;
+/*!40000 ALTER TABLE `job_batches` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jobs`
+--
+
+DROP TABLE IF EXISTS `jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `jobs` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attempts` tinyint unsigned NOT NULL,
+  `reserved_at` int unsigned DEFAULT NULL,
+  `available_at` int unsigned NOT NULL,
+  `created_at` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `jobs_queue_index` (`queue`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jobs`
+--
+
+LOCK TABLES `jobs` WRITE;
+/*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `migrations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2024_06_25_062600_create_cars_table',1),(5,'2024_08_09_074117_create_cars_types_table',1),(6,'2024_08_09_084429_create_cars_models_table',1),(7,'2024_08_21_045113_create_customers_table',2),(9,'2024_08_21_045557_create_transactions_table',3);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_reset_tokens`
+--
+
+DROP TABLE IF EXISTS `password_reset_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password_reset_tokens`
+--
+
+LOCK TABLES `password_reset_tokens` WRITE;
+/*!40000 ALTER TABLE `password_reset_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_reset_tokens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sessions` (
+  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint unsigned DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_activity` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sessions_user_id_index` (`user_id`),
+  KEY `sessions_last_activity_index` (`last_activity`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+INSERT INTO `sessions` VALUES ('KaDwMvghlMETuSnseFxGGLYkhj0o4bG5YNbjpPHC',1,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0','YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTXNjYVozaURoM3VTUnNEZU96MjcyRWpaUE5YTkNzR0ZwWXlRQmVCUCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDA6Imh0dHA6Ly9yZW50YWxtb2JpbC50ZXN0OjgwODAvY2Fycz9wYWdlPTUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=',1728713534),('NI3RqJnyeHwrc3EaWL43GN5SigpbyVvjvVYh6F9m',NULL,'127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoibmJ1MTc0RW11S2xMMHJWOEt5TnpwWTIzdU9zWnlwaEY2MkFQTWh4cSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9yZW50YWxtb2JpbC50ZXN0OjgwODAvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19',1728710110);
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `transactions`
+--
+
+DROP TABLE IF EXISTS `transactions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `transactions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `id_transaction` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_customer` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cars_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `count_of_days` int NOT NULL,
+  `total_price` decimal(10,2) NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_complete` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `transactions_id_transaction_unique` (`id_transaction`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactions`
+--
+
+LOCK TABLES `transactions` WRITE;
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `is_admin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_username_unique` (`username`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Sanusi','sanusi123','test@example.com','2024-08-20 01:44:43','1','$2y$12$pCpTLs5vamUboDTUXNrGgeYD7JnAwMmv5vZawGPdDz6i.00HOuiRm','68RePTbqu3','2024-08-20 01:44:44','2024-08-20 01:44:44');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'rental_mobil'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-11-29 14:53:06
